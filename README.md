@@ -55,15 +55,4 @@ python day2/13_webpy.py 8080
 uvicorn 14_fastapi:app --app-dir day2 --reload      # then open http://localhost:8000/docs
 ```
 
-## Notes for the trainer
 
-- `day2/db.py` is typed once and shared by sessions 10 and 14; it defaults to a local
-  SQLite file (`codealong.db`, created on first run, safe to delete).
-  To use Postgres instead: `set APP_DATABASE_URL=postgresql+psycopg://orders:orders@localhost:5432/orders`.
-- Only session 9 truly requires Postgres. If Docker is a problem, skip it and
-  demo the same ideas (parameters, transactions) with session 10.
-- Session 12 uses `if __name__ == "__main__":` - required for processes on Windows.
-- The `data/` folder holds the sample CSVs (orders are intentionally dirty: mixed
-  date formats, `$`/rupee prices, duplicates, "two" as a quantity, blank customers).
-- There is no Day 1/Day 2 "kickoff" or "capstone" file: kickoff is just starting
-  Postgres; for a capstone, run session 7's pipeline and load its result with session 10's models.
